@@ -2,8 +2,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import Tag from '../Elements/Tag';
-import { slug } from 'github-slugger';
 import axios from 'axios';
 
 const HomeCoverSection = () => {
@@ -21,7 +19,7 @@ const HomeCoverSection = () => {
     
       const handleSubmit = async () => {
           try {
-            const response = await axios.get("http://localhost:8080/cms/getArticle");
+            const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getArticle");
             setArticle(response.data[0]);
             // Ecco la risposta dal server
             console.log("Risposta dal server:", response.status + response.data);
@@ -33,7 +31,7 @@ const HomeCoverSection = () => {
   
       const handlegetCategories = async () => {
           try {
-            const response = await axios.get("http://localhost:8080/cms/getCategory");
+            const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getCategory");
             setCategories(response.data[0]);
             // Ecco la risposta dal server
             console.log("Risposta dal server:", response.status + response.data);
@@ -62,7 +60,10 @@ const HomeCoverSection = () => {
               <span className="uppercase text-accent dark:text-accentDark font-semibold text-xs sm:text-sm w-fit" style={{backgroundColor:"#000" ,border: 3,borderColor:"cyan",borderStyle:"solid",borderRadius:18,padding:8,color:"white",fontSize:"0.875rem"}}>
                 {categories.category} 
               </span> 
-                   <Link href="/" className='mt-6'> 
+                <Link 
+                  href={`/blog/${blog.titleArticle}`}
+                  className='mt-6'
+                > 
                   <h1 className='font-bold capitalize text-lg sm:text-xl md:text-3xl lg:text-4xl'>
                       <span className='bg-gradient-to-r from-accent to-accent dark:from-accentDark/50 
                       dark:to-accentDark/50 bg-[length:0px_6px]
@@ -70,10 +71,10 @@ const HomeCoverSection = () => {
                       {blog.titleArticle}
                       </span>
                   </h1>
-                   </Link> 
-                  <p className='hidden  sm:inline-block mt-4 md:text-lg lg:text-xl font-in'>
-                      {blog.subTitle}
-                  </p>
+                </Link> 
+                <p className='hidden  sm:inline-block mt-4 md:text-lg lg:text-xl font-in'>
+                    {blog.subTitle}
+                </p>
               </div>
     </article>
     </div>

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "../Icons";
 import Link from "next/link";
 import siteMetadata from "@/src/utils/siteMetaData";
+import axios from "axios";
 
 const Footer = () => {
   const {
@@ -11,8 +12,31 @@ const Footer = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    handleSubmitDataForm(data);
+  }
   console.log(errors);
+
+  const handleSubmitDataForm = async (data) => {
+    const dataForm = {
+      name: 'nuovo utente iscritto alla newsletter', //da cambiare con l'username
+      email: data.email,
+      phone_number:'',
+      project_details:`l utente ${data.email} si è iscritto alla newsletter`
+    };
+
+    {/* FARE MODALE CHE MOSTRA SE LA CHIAMATA E ANDATA A BUON FINE */}
+
+    try {
+      const response = await axios.post("http://localhost:8081/email/send",dataForm);
+      // Ecco la risposta dal server
+      console.log("Risposta dal server post Email:", response.status + response.data);
+
+      return response.data;
+    } catch (error) {
+      console.error("Errore durante la chiamata POST email:", error);
+    }
+  };
 
   return (
     <footer className="mt-16 rounded-2xl bg-dark dark:bg-accentDark/90 m-2 sm:m-10 flex flex-col items-center text-light dark:text-dark">
@@ -34,13 +58,13 @@ const Footer = () => {
           {...register("email", { required: true, maxLength: 80 })}
           className="w-full bg-transparent pl-2 sm:pl-0 text-dark focus:border-dark focus:ring-0 border-0 border-b mr-2 pb-1"
         />
-
+        {/* aggiungere input username */}
         <input
           type="submit"
           className="bg-dark text-light dark:text-dark dark:bg-light cursor-pointer font-medium rounded px-3 sm:px-5 py-1"
         />
       </form>
-      <div className="flex items-center mt-8">
+      <div className="flex items-center mt-8 ml-8">
         <a
           href={siteMetadata.linkedin}
           className="inline-block w-6 h-6 mr-4"

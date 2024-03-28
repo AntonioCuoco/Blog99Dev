@@ -21,7 +21,7 @@ const BlogLayoutOne = (props) => {
 
   const handleSubmit = async (number) => {
       try {
-        const response = await axios.get("http://localhost:8080/cms/getArticle");
+        const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getArticle");
         setBlogArticle(response.data[number]);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -33,7 +33,7 @@ const BlogLayoutOne = (props) => {
 
   const handlegetCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/cms/getCategory");
+        const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getCategory");
         setCategories(response.data[0]);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -54,10 +54,9 @@ const BlogLayoutOne = (props) => {
         src={blog.imgCopertina}
         // placeholder="blur"
         alt={blog.titleArticle}
-        width={50}
-        height={50}
+        width={40}
+        height={40}
         className="w-full h-full object-center object-cover rounded-xl group-hover:scale-105 transition-all ease duration-300"
-        sizes="(max-width: 1180px) 100vw, 50vw"
       />
 
       <div className="w-full absolute bottom-0 p-4 xs:p-6 sm:p-10 z-20">
@@ -67,7 +66,7 @@ const BlogLayoutOne = (props) => {
         <span className="uppercase text-accent dark:text-accentDark font-semibold text-xs sm:text-sm w-fit" style={{backgroundColor:"#000" ,border: 3,borderColor:"cyan",borderStyle:"solid",borderRadius:18,padding:8,color:"white",fontSize:"0.875rem"}}>
            {categories.category} 
         </span>
-          <Link href="/" className="mt-6">  
+          <Link href={`/blog/${blog.titleArticle}`} className="mt-6">  
           <h2 className="font-bold capitalize text-sm xs:text-base sm:text-xl md:text-2xl text-light mt-2 sm:mt-4">
             <span
               className="bg-gradient-to-r from-accent to-accent bg-[length:0px_6px] dark:from-accentDark/50 dark:to-accentDark/50
@@ -77,7 +76,7 @@ const BlogLayoutOne = (props) => {
             </span>
           </h2>
           </Link>
-          <Link href="/" className="mt-6">  
+          <Link href={`/blog/${blog.titleArticle}`} className="mt-6">  
           <h2 className="capitalize text-sm xs:text- sm:text-lg md:text-xl text-light mt-2 sm:mt-4">
               {blog.subTitle}
           </h2>

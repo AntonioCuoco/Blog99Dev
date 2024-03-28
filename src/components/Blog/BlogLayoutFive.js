@@ -1,23 +1,25 @@
 'use client'
+import React, { useEffect, useState } from "react";
+import Tag from "../Elements/Tag";
+import Link from "next/link";
+import Image from "next/image";
+import { slug } from "github-slugger";
 import axios from "axios";
 import { format } from "date-fns";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
 
-const BlogLayoutTwo = (props) => {
+const BlogLayoutFive = (props) => {
+  useEffect(() => {
+    // Funzione auto-invocante
+    (async () => {
+      handleSubmit();
+      handlegetCategories();
+    })();
+  }, []);
   
-    useEffect(() => {
-      // Funzione auto-invocante
-      (async () => {
-        handleSubmit();
-        handlegetCategories();
-      })();
-    },[]);
-
   const [blog,setBlogArticle] = useState([]);
   const [categories,setCategories] = useState([]);
-  
+
+
   const handleSubmit = async () => {
       try {
         const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getArticle");
@@ -33,7 +35,7 @@ const BlogLayoutTwo = (props) => {
   const handlegetCategories = async () => {
       try {
         const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getCategory");
-        setCategories(response.data[0]);
+        setCategories(response.data[props.number]);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
         return response.data;
@@ -43,7 +45,7 @@ const BlogLayoutTwo = (props) => {
   };
 
   return (
-    <div className="group grid grid-cols-12 gap-4 items-center text-dark dark:text-light">
+    <div className="group grid grid-cols-12 gap-4 items-center text-dark dark:text-light mt-6">
       <Link
         href={`/blog/${blog.titleArticle}`}
         className=" col-span-12  lg:col-span-4 h-full rounded-xl overflow-hidden"
@@ -55,7 +57,7 @@ const BlogLayoutTwo = (props) => {
           alt={blog.titleArticle}
           width={20}
           height={20}
-          className="aspect-square w-full h-full object-cover object-center group-hover:scale-105 transition-all ease duration-300"
+          className="aspect-square w-full h-min h-full object-cover object-center group-hover:scale-105 transition-all ease duration-300 rounded-full border-2 border-black"
           sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 33vw"
         />
        </Link> 
@@ -74,11 +76,11 @@ const BlogLayoutTwo = (props) => {
             </span>
           </h2>
          </Link>
-         <Link href={`/blog/${blog.titleArticle}`} className="inline-block my-1"> 
+         {/* <Link href={`/blog/${blog.titleArticle}`} className="inline-block my-1"> 
           <h2 className="capitalize text-base sm:text-base">
               {blog.subTitle}
           </h2>
-         </Link>
+         </Link> */}
 
         <span className="inline-block w-full capitalize text-gray dark:text-light/50 font-semibold  text-xs sm:text-base">
           {format(new Date(2023, 10, 17), "dd/MM/yyyy")}
@@ -88,4 +90,4 @@ const BlogLayoutTwo = (props) => {
   );
 };
 
-export default BlogLayoutTwo;
+export default BlogLayoutFive;

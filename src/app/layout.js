@@ -5,6 +5,8 @@ import Header from "@/src/components/Header";
 import Footer from "../components/Footer";
 import siteMetadata from "../utils/siteMetaData";
 import Script from "next/script";
+import { ReduxProvider } from "../utils/redux/feature/ReduxProvider";
+import ManutenzionePage from "./manutenzione-page";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -54,21 +56,31 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
+  let manutenzione = false;
   return (
     <html lang="en">
-      <body
-      >
-        <Script id="theme-switcher" strategy="beforeInteractive">
-          {`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }`}
-        </Script>
-        <Header />
-        {children}
-        <Footer />
+      <body>
+        {
+          manutenzione ? 
+          (
+            <ManutenzionePage />
+          )
+          :
+          (
+            <ReduxProvider>
+              <Script id="theme-switcher" strategy="beforeInteractive">
+                {`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark')
+                } else {
+                document.documentElement.classList.remove('dark')
+                }`}
+              </Script>
+              <Header />
+              {children}
+              <Footer />
+            </ReduxProvider>
+          )
+        }
       </body>
     </html>
   );
