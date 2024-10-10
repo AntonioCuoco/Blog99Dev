@@ -43,7 +43,7 @@ const BlogLayoutTwo = (props) => {
   };
 
   return (
-    <div className="group grid grid-cols-12 gap-4 items-center text-dark dark:text-light">
+    <div className="group grid grid-cols-12 gap-4 items-center text-dark">
       <Link
         href={`/blog/${blog.titleArticle}`}
         className=" col-span-12  lg:col-span-4 h-full rounded-xl overflow-hidden"

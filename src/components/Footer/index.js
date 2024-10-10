@@ -39,18 +39,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className="mt-16 rounded-2xl bg-dark dark:bg-accentDark/90 m-2 sm:m-10 flex flex-col items-center text-light dark:text-dark">
+    <footer className="mt-16 rounded-2xl bg-dark m-2 sm:m-10 flex flex-col items-center text-light">
       <h3 className="mt-16 font-medium dark:font-bold text-center capitalize text-2xl sm:text-3xl lg:text-4xl px-4">
-        Interesting Stories | Updates | Guides
+        Devs News | devs guide | devs update
       </h3>
       <p className="mt-5 px-4 text-center w-full sm:w-3/5 font-light dark:font-medium text-sm sm:text-base">
-        Subscribe to learn about new technology and updates. Join over 5000+
-        members community to stay up to date with latest news.
+        Iscriviti per rimanere aggiornato sulle ultime notizie inerenti al mondo di noi sviluppatori come per esempio guide interessanti da studiare o siti che ti possono semplificare il lavoro o notizie dagli strumenti e linguaggi che si utilizzano tutti i giorni
       </p>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" mt-6 w-fit sm:min-w-[384px] flex items-stretch bg-light dark:bg-dark p-3 sm:p-3 rounded mx04"
+        className=" mt-6 w-fit sm:min-w-[384px] flex items-stretch bg-light p-3 sm:p-3 rounded mx04"
       >
         <input
           type="email"
@@ -61,7 +60,7 @@ const Footer = () => {
         {/* aggiungere input username */}
         <input
           type="submit"
-          className="bg-dark text-light dark:text-dark dark:bg-light cursor-pointer font-medium rounded px-3 sm:px-5 py-1"
+          className="bg-dark text-light cursor-pointer font-medium rounded px-3 sm:px-5 py-1"
         />
       </form>
       <div className="flex items-center mt-8 ml-8">
@@ -88,13 +87,6 @@ const Footer = () => {
           target="_blank"
         >
           <GithubIcon className="fill-light dark:fill-dark  hover:scale-125 transition-all ease duration-200" />
-        </a>
-        <a
-          href={siteMetadata.dribbble}
-          className="inline-block w-6 h-6 mr-4"
-          aria-label="Check my profile on Dribbble"
-          target="_blank"
-        >
         </a>
       </div>
 

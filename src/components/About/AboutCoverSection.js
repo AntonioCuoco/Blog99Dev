@@ -15,10 +15,10 @@ const AboutCoverSection = () => {
 
         <div className='w-full md:w-1/2 flex flex-col text-left items-start justify-center px-5 xs:p-10 pb-10 lg:px-16'>
             <h2 className='font-bold capitalize text-4xl xs:text-5xl sxl:text-6xl  text-center lg:text-left'>
-            Dream Big, Work Hard, Achieve More!
+            Sogna in grande, Lavora sodo e non ti arrendere mai!
             </h2>
             <p className='font-medium capitalize mt-4 text-base'>
-            This Mantra Drives My Work As A Passionate Freelancer. I Blend Innovative Technology With Timeless Design For Captivating Digital Experiences. Inspired By Nature And Literature, I'm A Perpetual Learner Embracing Challenges. With Each Project, I Aim To Leave A Lasting Impact—One Pixel At A Time.
+              la mia passione per lo sviluppo web mi ha portato a studiare 24 ore al giorno, per poter poi cercare un lavoro in questo ambito come frontend developer che e la cosa che mi appassiona di piu, e per la quale continuero a studiare sempre di piu. 
             </p>
         </div>
     </section>

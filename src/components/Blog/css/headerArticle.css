@@ -1,0 +1,11 @@
+ol li {
+    list-style-type: decimal;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
+pre {
+    background-color: grey;
+}

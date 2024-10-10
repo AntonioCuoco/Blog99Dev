@@ -18,7 +18,7 @@ const BodyArticle = (slug) => {
 
   const handleSubmit = async () => {
       try {
-        const response = await axios.post("http://localhost:8080/cms/retrieveArticleByTitle",slug.slug);
+        const response = await axios.post("https://backend-cms-w52q.onrender.com/cms/retrieveArticleByTitle",slug.slug);
         setBlog(response.data);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -38,7 +38,7 @@ const BodyArticle = (slug) => {
           <h3 className='text-lg uppercase font-semibold'>Recent Post</h3>
           <div>
             <BlogLayoutFive number={0}/>
-            <BlogLayoutFive number={1}/>
+            <BlogLayoutFive number={0}/>
           </div>
         </div>
      }

@@ -2,7 +2,7 @@
   "name": "developer-blog-starter-code",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://99dev.it",
+  "homepage": "https://99dev.net",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,6 +24,7 @@
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "github-slugger": "^2.0.0",
+    "html-react-parser": "^5.1.10",
     "next": "13.5.4",
     "next-contentlayer": "^0.3.4",
     "next-sitemap": "^4.2.2",

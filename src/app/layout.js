@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import siteMetadata from "../utils/siteMetaData";
 import Script from "next/script";
 import { ReduxProvider } from "../utils/redux/feature/ReduxProvider";
+import NotFound from "./not-found";
 import ManutenzionePage from "./manutenzione-page";
 
 const inter = Inter({
