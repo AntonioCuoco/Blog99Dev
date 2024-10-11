@@ -15,6 +15,7 @@ import { switchTheme } from "@/src/utils/redux/slice/Blog_slice";
 
 const Header = () => {
 
+  //TODO fare affianco ai link dei socialBanner, una icona per far apparire una barra di ricerca
   const mode = useSelector(state => state.blogSlice.Theme);
   const [click, setClick] = useState(false);
   const [IconVisibility, setIconVisibility] = useState(true);
@@ -73,21 +74,21 @@ const Header = () => {
     <header className="w-full p-4  px-5 sm:px-10 flex items-center justify-between">
         <Logo mode={mode}/>
 
-        <button className="inline-block z-50" style={{marginRight:click ? "0px" : "15px"}} onClick={toggle} aria-label="Hamburger Menu">
+        <button className="inline-block sm:hidden z-50" onClick={toggle} aria-label="Hamburger Menu">
           <div className="w-6 cursor-pointer transition-all ease duration-300">
             <div className="relative">
-            <span className="absolute top-0 inline-block w-full h-0.5 bg-dark rounded transition-all ease duration-200" 
+            <span className="absolute top-0 inline-block w-full h-0.5 bg-dark dark:bg-light rounded transition-all ease duration-200" 
             style={{
              transform: click ? "rotate(-45deg) translateY(0)" : "rotate(0deg) translateY(6px)"
             }}
             
             >&nbsp;</span>
-            <span className="absolute top-0 inline-block w-full h-0.5 bg-dark rounded transition-all ease duration-200"
+            <span className="absolute top-0 inline-block w-full h-0.5 bg-dark dark:bg-light rounded transition-all ease duration-200"
             style={{
               opacity: click ? 0 : 1
              }}
             >&nbsp;</span>
-            <span className="absolute top-0 inline-block w-full h-0.5 bg-dark rounded transition-all ease duration-200"
+            <span className="absolute top-0 inline-block w-full h-0.5 bg-dark dark:bg-light rounded transition-all ease duration-200"
             style={{
               transform: click ? "rotate(45deg) translateY(0)" : "rotate(0deg) translateY(-6px)"
              }}
@@ -102,14 +103,13 @@ const Header = () => {
         transition-all ease duration-300
         "
         style={{
-          top: click ? "1rem" : "-5rem",
-          left: 0
+          top: click ? "1rem" : "-5rem"
          }}
         
         >
-            <Link href="/" className="">Home</Link>
-            <Link href="/about" className="ml-2">About</Link>
-            <Link href="/contact" className="ml-2">Contact</Link>
+            <Link href="/" className="mr-2">Home</Link>
+            <Link href="/about" className="mx-2">About</Link>
+            <Link href="/contact" className="mx-2">Contact</Link>
             {/* <button onClick={() => dispatch(switchTheme())}
             aria-label="theme-switcher"
             >

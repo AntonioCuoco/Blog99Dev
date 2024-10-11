@@ -18,7 +18,7 @@ const BodyArticle = (slug) => {
 
   const handleSubmit = async () => {
       try {
-        const response = await axios.post("https://backend-cms-w52q.onrender.com/cms/retrieveArticleByTitle",slug.slug);
+        const response = await axios.post("http://localhost:8080/cms/retrieveArticleByTitle",slug.slug);
         setBlog(response.data);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);

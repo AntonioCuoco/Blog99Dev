@@ -44,7 +44,7 @@ const BlogLayoutThree = (props) => {
 
 
   return (
-    <div className="group flex flex-col items-center text-dark border-2 border-opacity-25 p-2">
+    <div className="group flex flex-col items-center text-dark dark:text-light">
       <Link href={`/blog/${blog.titleArticle}`} className="h-full rounded-xl overflow-hidden">
         <Image
           src={blog.imgCopertina}
@@ -58,7 +58,7 @@ const BlogLayoutThree = (props) => {
         />
       </Link>
 
-      <div className="flex flex-col w-full mt-4 ">
+      <div className="flex flex-col w-full mt-4">
         <span className="uppercase text-accent dark:text-accentDark font-semibold text-xs sm:text-sm w-fit" style={{backgroundColor:"#000" ,border: 3,borderColor:"cyan",borderStyle:"solid",borderRadius:18,padding:8,color:"white",fontSize:"0.875rem"}}>
            {categories.category} 
         </span>
