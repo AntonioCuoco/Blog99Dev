@@ -20,7 +20,7 @@ const BlogLayoutTwo = (props) => {
   
   const handleSubmit = async () => {
       try {
-        const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getArticle");
+        const response = await axios.get("http://localhost:3001/getArticle");
         setBlogArticle(response.data[props.number]);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -32,7 +32,7 @@ const BlogLayoutTwo = (props) => {
 
   const handlegetCategories = async () => {
       try {
-        const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getCategory");
+        const response = await axios.get("http://localhost:3001/getCategory");
         setCategories(response.data[0]);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -43,7 +43,7 @@ const BlogLayoutTwo = (props) => {
   };
 
   return (
-    <div className="group grid grid-cols-12 gap-4 items-center text-dark dark:text-light">
+    <div className="group grid grid-cols-12 gap-4 items-center text-dark">
       <Link
         href={`/blog/${blog.titleArticle}`}
         className=" col-span-12  lg:col-span-4 h-full rounded-xl overflow-hidden"

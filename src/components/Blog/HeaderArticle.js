@@ -8,19 +8,20 @@ import './css/headerArticle.css'
 
 const HeaderArticle = (slug) => {
 
+  
+  const [blog,setBlog] = useState(null);
+  const [categories,setCategories] = useState([]);
+  
   useEffect(() => {
     // Funzione auto-invocante
     (async () => {
       handleSubmit();
     })();
   }, []);
-
-  const [blog,setBlog] = useState([]);
-  const [categories,setCategories] = useState([]);
-
+  
   const handleSubmit = async () => {
       try {
-        const response = await axios.post("http://localhost:8080/cms/retrieveArticleByTitle",slug.slug);
+        const response = await axios.post("http://localhost:3001/retrieveArticleByTitle",{search: slug.slug});  {/* come%20creare%20blog%20con%20blalalallal */}
         setBlog(response.data);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -32,7 +33,7 @@ const HeaderArticle = (slug) => {
 
   return (
     <div className='w-full flex flex-col md:ml-28'>
-      {blog.length === 0 ? 
+      {blog === undefined || blog === null ? 
         <Spin className='fixed top-1/2 left-1/2'/>
        : 
     <div className='w-full flex flex-col h-full'>

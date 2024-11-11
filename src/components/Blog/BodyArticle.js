@@ -18,7 +18,7 @@ const BodyArticle = (slug) => {
 
   const handleSubmit = async () => {
       try {
-        const response = await axios.post("http://localhost:8080/cms/retrieveArticleByTitle",slug.slug);
+        const response = await axios.post("http://localhost:3001/retrieveArticleByTitle", {search: slug.slug});
         setBlog(response.data);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -31,7 +31,7 @@ const BodyArticle = (slug) => {
   return (
     //capire come far funzionare il loading qui
     <div className='w-1/3 flex flex-col'>
-      {blog.length === 0 ? 
+      {blog  ===  undefined || blog === null ? 
         null
        : 
         <div className='w-fit flex flex-col'>

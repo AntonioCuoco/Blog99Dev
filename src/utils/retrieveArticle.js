@@ -17,7 +17,7 @@ const RetrieveArticle = (number) => {
     
       const handleSubmit = async () => {
           try {
-            const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getArticle");
+            const response = await axios.get("http://localhost:3001/getArticle");
             setBlog(response.data[number]);
             // Ecco la risposta dal server
             console.log("Risposta dal server:", response.status + response.data);
@@ -29,7 +29,7 @@ const RetrieveArticle = (number) => {
   
       const handlegetCategories = async () => {
           try {
-            const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getCategory");
+            const response = await axios.get("http://localhost:3001/getCategory");
             setCategories(response.data[0]);
             // Ecco la risposta dal server
             console.log("Risposta dal server:", response.status + response.data);

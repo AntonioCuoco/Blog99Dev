@@ -39,7 +39,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="mt-16 rounded-2xl bg-dark dark:bg-accentDark/90 m-2 sm:m-10 flex flex-col items-center text-light dark:text-dark">
+    <footer className="mt-16 rounded-2xl bg-dark m-2 sm:m-10 flex flex-col items-center text-light">
       <h3 className="mt-16 font-medium dark:font-bold text-center capitalize text-2xl sm:text-3xl lg:text-4xl px-4">
         Devs News | devs guide | devs update
       </h3>
@@ -49,7 +49,7 @@ const Footer = () => {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" mt-6 w-fit sm:min-w-[384px] flex items-stretch bg-light dark:bg-dark p-3 sm:p-3 rounded mx04"
+        className=" mt-6 w-fit sm:min-w-[384px] flex items-stretch bg-light p-3 sm:p-3 rounded mx04"
       >
         <input
           type="email"
@@ -60,7 +60,7 @@ const Footer = () => {
         {/* aggiungere input username */}
         <input
           type="submit"
-          className="bg-dark text-light dark:text-dark dark:bg-light cursor-pointer font-medium rounded px-3 sm:px-5 py-1"
+          className="bg-dark text-light cursor-pointer font-medium rounded px-3 sm:px-5 py-1"
         />
       </form>
       <div className="flex items-center mt-8 ml-8">
@@ -87,13 +87,6 @@ const Footer = () => {
           target="_blank"
         >
           <GithubIcon className="fill-light dark:fill-dark  hover:scale-125 transition-all ease duration-200" />
-        </a>
-        <a
-          href={siteMetadata.dribbble}
-          className="inline-block w-6 h-6 mr-4"
-          aria-label="Check my profile on Dribbble"
-          target="_blank"
-        >
         </a>
       </div>
 

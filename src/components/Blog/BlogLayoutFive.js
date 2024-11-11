@@ -22,7 +22,7 @@ const BlogLayoutFive = (props) => {
 
   const handleSubmit = async () => {
       try {
-        const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getArticle");
+        const response = await axios.get("http://localhost:3001/getArticle");
         setBlogArticle(response.data[props.number]);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -34,7 +34,7 @@ const BlogLayoutFive = (props) => {
 
   const handlegetCategories = async () => {
       try {
-        const response = await axios.get("https://backend-cms-w52q.onrender.com/cms/getCategory");
+        const response = await axios.get("http://localhost:3001/getCategory");
         setCategories(response.data[props.number]);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
