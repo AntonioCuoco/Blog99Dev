@@ -1,13 +1,10 @@
 'use client'
-import axios from "axios";
-import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const BlogLayoutFour = (props) => {
   return (
-    <div className="group flex flex-col items-center text-dark dark:text-light">
+    <div className="group flex flex-col items-center text-dark dark:text-light" key={props.key}>
       <Link href={`/blog2/${props.titleArticle}`} className="h-full rounded-xl overflow-hidden" onClick={props.setIsModalOpen}>
         <Image
           src={props.imgCopertina}

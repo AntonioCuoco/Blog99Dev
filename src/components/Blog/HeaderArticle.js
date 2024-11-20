@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import axios from 'axios'
 import { Spin } from 'antd'
-import parse from 'html-react-parser'
 import './css/headerArticle.css'
 
 const HeaderArticle = (slug) => {
@@ -21,7 +20,7 @@ const HeaderArticle = (slug) => {
   
   const handleSubmit = async () => {
       try {
-        const response = await axios.post("http://localhost:3001/retrieveArticleByTitle",{search: slug.slug});  {/* come%20creare%20blog%20con%20blalalallal */}
+        const response = await axios.post("https://versatile-topic-442111-u7.oa.r.appspot.com/retrieveArticleByTitle",{search: slug.slug});  {/* come%20creare%20blog%20con%20blalalallal */}
         setBlog(response.data);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -32,16 +31,15 @@ const HeaderArticle = (slug) => {
   }; 
 
   return (
-    <div className='w-full flex flex-col md:ml-28'>
+    <div className='w-full flex flex-col items-center justify-center'>
       {blog === undefined || blog === null ? 
         <Spin className='fixed top-1/2 left-1/2'/>
        : 
-    <div className='w-full flex flex-col h-full'>
-      <div className='w-full flex flex-col'>
-          <h2 className='text-3xl mb-3'>{blog.titleArticle}</h2>
-          <h3 className='text-lg mb-2'>{blog.subTitle}</h3>
-          <Image src={blog.imgCopertina} width={200} height={200} className='w-full md:w-11/12 md:h-2/6'/>
-          {parse(blog.bodyArticle)}
+    <div className='w-full flex flex-col h-full items-center justify-center'>
+      <div className='w-full flex flex-col items-center justify-center'>
+          <h2 className='text-3xl mb-3 text-center'>{blog.titleArticle}</h2>
+          <h3 className='text-lg mb-2 text-center'>{blog.subTitle}</h3>
+          <Image src={blog.imgCopertina} width={200} height={200} className='w-full h-auto md:w-auto md:h-auto md:border-2 md:border-solid md:border-slate-300 dark:md:border-light'/>
       </div>
     </div>
     }

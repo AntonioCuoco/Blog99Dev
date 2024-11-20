@@ -1,0 +1,14 @@
+.text-hover-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px; /* Posiziona la stanghetta sotto il testo */
+    width: 0;
+    height: 2px; /* Altezza della stanghetta */
+    background-color: black; /* Colore della stanghetta */
+    transition: width 0.3s ease; /* Transizione per l'animazione */
+  }
+
+  .text-hover-underline:hover::after {
+    width: 50%; /* Larghezza della stanghetta al passaggio del mouse */
+  }

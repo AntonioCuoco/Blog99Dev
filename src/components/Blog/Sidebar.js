@@ -1,5 +1,4 @@
 "use client"
-import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import image3 from '../../../public/character.png'
 

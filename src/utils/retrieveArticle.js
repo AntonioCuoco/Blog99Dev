@@ -1,6 +1,6 @@
 'use client'
 import axios from "axios";
-import React, { useEffect, useState } from "react";7
+import { useEffect, useState } from "react";
 
 
 const RetrieveArticle = (number) => {
@@ -17,7 +17,7 @@ const RetrieveArticle = (number) => {
     
       const handleSubmit = async () => {
           try {
-            const response = await axios.get("http://localhost:3001/getArticle");
+            const response = await axios.get("https://versatile-topic-442111-u7.oa.r.appspot.com/getArticle");
             setBlog(response.data[number]);
             // Ecco la risposta dal server
             console.log("Risposta dal server:", response.status + response.data);
@@ -29,7 +29,7 @@ const RetrieveArticle = (number) => {
   
       const handlegetCategories = async () => {
           try {
-            const response = await axios.get("http://localhost:3001/getCategory");
+            const response = await axios.get("https://versatile-topic-442111-u7.oa.r.appspot.com/getCategory");
             setCategories(response.data[0]);
             // Ecco la risposta dal server
             console.log("Risposta dal server:", response.status + response.data);

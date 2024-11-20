@@ -1,6 +1,5 @@
 'use client'
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import BlogLayoutThree from "../Blog/BlogLayoutThree";
 import RetrieveAllArticle from "@/src/utils/retrieveAllArticle";
 

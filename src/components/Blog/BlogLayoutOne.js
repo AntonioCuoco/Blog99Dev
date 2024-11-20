@@ -1,9 +1,7 @@
 'use client'
-import React, { useEffect, useState } from "react";
-import Tag from "../Elements/Tag";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { slug } from "github-slugger";
 import axios from "axios";
 
 const BlogLayoutOne = (props) => {
@@ -21,7 +19,7 @@ const BlogLayoutOne = (props) => {
 
   const handleSubmit = async (number) => {
       try {
-        const response = await axios.get("http://localhost:3001/getArticle");
+        const response = await axios.get("https://versatile-topic-442111-u7.oa.r.appspot.com/getArticle");
         setBlogArticle(response.data[number]);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -33,7 +31,7 @@ const BlogLayoutOne = (props) => {
 
   const handlegetCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/getCategory");
+        const response = await axios.get("https://versatile-topic-442111-u7.oa.r.appspot.com/getCategory");
         setCategories(response.data[0]);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);

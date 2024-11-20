@@ -19,7 +19,7 @@ const HomeCoverSection = () => {
     
       const handleSubmit = async () => {
           try {
-            const response = await axios.get("http://localhost:3001/getArticle");
+            const response = await axios.get("https://versatile-topic-442111-u7.oa.r.appspot.com/getArticle");
             setArticle(response.data[0]);
             // Ecco la risposta dal server
             console.log("Risposta dal server:", response.status + response.data);
@@ -31,7 +31,7 @@ const HomeCoverSection = () => {
   
       const handlegetCategories = async () => {
           try {
-            const response = await axios.get("http://localhost:3001/getCategory");
+            const response = await axios.get("https://versatile-topic-442111-u7.oa.r.appspot.com/getCategory");
             setCategories(response.data[0]);
             // Ecco la risposta dal server
             console.log("Risposta dal server:", response.status + response.data);

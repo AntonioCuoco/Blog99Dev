@@ -1,9 +1,11 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import BlogLayoutFive from './BlogLayoutFive'
+import parse from 'html-react-parser'
 import { Spin } from 'antd'
+import { isNilAndLenghtIs0 } from '@/src/utils/utils'
+import WrittenBy from './WrittenBy'
 
 const BodyArticle = (slug) => {
 
@@ -18,7 +20,7 @@ const BodyArticle = (slug) => {
 
   const handleSubmit = async () => {
       try {
-        const response = await axios.post("http://localhost:3001/retrieveArticleByTitle", {search: slug.slug});
+        const response = await axios.post("https://versatile-topic-442111-u7.oa.r.appspot.com/retrieveArticleByTitle", {search: slug.slug});
         setBlog(response.data);
         // Ecco la risposta dal server
         console.log("Risposta dal server:", response.status + response.data);
@@ -30,17 +32,23 @@ const BodyArticle = (slug) => {
 
   return (
     //capire come far funzionare il loading qui
-    <div className='w-1/3 flex flex-col'>
+    <div className='w-full flex flex-col items-center justify-center'>
       {blog  ===  undefined || blog === null ? 
-        null
-       : 
-        <div className='w-fit flex flex-col'>
+        <Spin className='fixed top-1/2 left-1/2'/>
+       :
+       <div className='w-full flex flex-col md:flex-row gap-4'>
+        <div className='w-full h-auto'>
+          {isNilAndLenghtIs0(blog.bodyArticle) ? <Spin className='fixed top-1/2 left-1/2'/> : parse(blog.bodyArticle)}
+        </div>
+        <div className='w-1/3 flex flex-col gap-4'>
+          <WrittenBy />
           <h3 className='text-lg uppercase font-semibold'>Recent Post</h3>
           <div>
             <BlogLayoutFive number={0}/>
             <BlogLayoutFive number={0}/>
           </div>
         </div>
+       </div>
      }
     </div>
   )

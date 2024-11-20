@@ -1,68 +1,65 @@
 "use client";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import React, { useEffect, useState } from "react";
-
-const supabase = createClientComponentClient();
+// import React, { useEffect, useState } from "react";
 
 const ViewCounter = ({ slug, noCount = false, showCount = true }) => {
-  const [views, setViews] = useState(0);
+  // const [views, setViews] = useState(0);
 
-  useEffect(() => {
-    const incrementView = async () => {
-      try {
-        let { error } = await supabase.rpc("increment", {
-          slug_text:slug ,
-        });
+  // useEffect(() => {
+  //   const incrementView = async () => {
+  //     try {
+  //       let { error } = await supabase.rpc("increment", {
+  //         slug_text:slug ,
+  //       });
 
-        if (error){
-            console.error("Error incrementing view count inside try block:", error)
-        };
-        
-      } catch (error) {
-        console.error(
-          "An error occurred while incrementing the view count:",
-          error
-        );
-      }
-    };
+  //       if (error){
+  //           console.error("Error incrementing view count inside try block:", error)
+  //       };
 
-    if(!noCount){
-        incrementView();
-    }
-  }, [slug, noCount]);
+  //     } catch (error) {
+  //       console.error(
+  //         "An error occurred while incrementing the view count:",
+  //         error
+  //       );
+  //     }
+  //   };
 
-  useEffect(() => {
-    const getViews = async () => {
-      try {
-        let { data, error } = await supabase
-  .from('views')
-  .select('count')
-  .match({slug: slug})
-  .single()
+  //   if(!noCount){
+  //       incrementView();
+  //   }
+  // }, [slug, noCount]);
 
-        if (error){
-            console.error("Error incrementing view count inside try block:", error)
-        };
+  // useEffect(() => {
+  //   const getViews = async () => {
+  //     try {
+  //       let { data, error } = await supabase
+  // .from('views')
+  // .select('count')
+  // .match({slug: slug})
+  // .single()
+
+  //       if (error){
+  //           console.error("Error incrementing view count inside try block:", error)
+  //       };
 
 
-        setViews(data ? data.count : 0)
-        
-      } catch (error) {
-        console.error(
-          "An error occurred while incrementing the view count:",
-          error
-        );
-      }
-    };
+  //       setViews(data ? data.count : 0)
 
-        getViews();
-  }, [slug]);
+  //     } catch (error) {
+  //       console.error(
+  //         "An error occurred while incrementing the view count:",
+  //         error
+  //       );
+  //     }
+  //   };
 
-  if (showCount) {
-    return <div>{views} views</div>;
-  } else {
-    return null;
-  }
+  //       getViews();
+  // }, [slug]);
+
+  // if (showCount) {
+  //   return <div>{views} views</div>;
+  // } else {
+  //   return null;
+  // }
 };
 
 export default ViewCounter;
