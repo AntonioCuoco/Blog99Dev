@@ -1,3 +1,5 @@
 # Blog99Dev
 
-## se si vuole far partire il progetto, quando lo si scarica dal repository, visto che nel repo manca il node-modules, una volta aperto il vostro ide, lanciate npm install o yarn install o l'equivalente per quello che usate voi.
+## LINK AL SITO: www.99dev.net
+
+## benvenuti nel mio progetto, questo è il mio blog, il progetto è stato deployato su google cloud app engine, quindi è disponibile al link sopra se volete vederlo e provarlo
