@@ -5,6 +5,7 @@ import { GithubIcon, LinkedinIcon, TwitterIcon } from "../Icons";
 import Link from "next/link";
 import siteMetadata from "@/src/utils/siteMetaData";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Footer = () => {
   const {
@@ -18,24 +19,28 @@ const Footer = () => {
   console.log(errors);
 
   const handleSubmitDataForm = async (data) => {
-    const dataForm = {
-      name: 'nuovo utente iscritto alla newsletter', //da cambiare con l'username
-      email: data.email,
-      phone_number:'',
-      project_details:`l utente ${data.email} si è iscritto alla newsletter`
-    };
+    Swal.fire({
+      title: "Sei iscritto alla newsletter",
+      icon: "success",
+    });
+    // const dataForm = {
+    //   name: 'nuovo utente iscritto alla newsletter', //da cambiare con l'username
+    //   email: data.email,
+    //   phone_number:'',
+    //   project_details:`l utente ${data.email} si è iscritto alla newsletter`
+    // };
 
-    {/* FARE MODALE CHE MOSTRA SE LA CHIAMATA E ANDATA A BUON FINE */}
+    // {/* FARE MODALE CHE MOSTRA SE LA CHIAMATA E ANDATA A BUON FINE */}
 
-    try {
-      const response = await axios.post("http://localhost:8081/email/send",dataForm);
-      // Ecco la risposta dal server
-      console.log("Risposta dal server post Email:", response.status + response.data);
+    // try {
+    //   const response = await axios.post("http://localhost:8081/email/send",dataForm);
+    //   // Ecco la risposta dal server
+    //   console.log("Risposta dal server post Email:", response.status + response.data);
 
-      return response.data;
-    } catch (error) {
-      console.error("Errore durante la chiamata POST email:", error);
-    }
+    //   return response.data;
+    // } catch (error) {
+    //   console.error("Errore durante la chiamata POST email:", error);
+    // }
   };
 
   return (
