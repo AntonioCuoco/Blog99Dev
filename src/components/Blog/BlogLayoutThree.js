@@ -1,6 +1,7 @@
 'use client'
+import { isNilAndLenghtIs0 } from "@/src/utils/utils";
 import axios from "axios";
-import { format } from "date-fns";
+import { format, parseISO, startOfDay } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -44,7 +45,10 @@ const BlogLayoutThree = (props) => {
 
 
   return (
-    <div className="group flex flex-col items-center text-dark border-2 border-opacity-25 p-2">
+    <div className="group flex flex-col items-center text-dark border border-slate-300 p-2">
+      <div className='absolute top-0 left-0 bottom-0 right-0 h-full
+            bg-gradient-to-b from-transparent from-10% to-zinc-400/20 z-0
+            ' />
       <Link href={`/blog/${blog.titleArticle}`} className="h-full rounded-xl overflow-hidden">
         <Image
           src={blog.imgCopertina}
@@ -53,7 +57,7 @@ const BlogLayoutThree = (props) => {
           alt={blog.titleArticle}
           width={20}
           height={20}
-          className=" aspect-[4/3] w-full h-full object-cover object-center  group-hover:scale-105 transition-all ease duration-300 "
+          className=" aspect-[4/3] w-full h-full object-scale-down object-center  group-hover:scale-105 transition-all ease duration-300 "
           sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 33vw" 
         />
       </Link>
@@ -81,7 +85,7 @@ const BlogLayoutThree = (props) => {
           </h2>
         </Link>
         <span className="capitalize text-gray dark:text-light/50 font-semibold text-sm  sm:text-base">
-          {format(new Date(2023, 10, 17), "dd/MM/yyyy")}
+          {isNilAndLenghtIs0(blog.dataPubblicazione) ? "Data non disponibile" : format(new Date(blog.dataPubblicazione), "dd/MM/yyyy")}
         </span>
       </div>
     </div>

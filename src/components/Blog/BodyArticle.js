@@ -42,7 +42,8 @@ const BodyArticle = (slug) => {
         </div>
         <div className='w-1/3 flex flex-col gap-4'>
           <WrittenBy />
-          <h3 className='text-lg uppercase font-semibold'>Recent Post</h3>
+          <p><span className='font-semibold capitalize text-base sm:text-lg whitespace-nowrap'>Data Pubblicazione:</span> {blog.dataPubblicazione}</p>
+          <h3 className='text-lg uppercase font-semibold mt-8'>Recent Post</h3>
           <div>
             <BlogLayoutFive number={0}/>
             <BlogLayoutFive number={0}/>

@@ -1,4 +1,5 @@
 'use client'
+import { isNilAndLenghtIs0 } from "@/src/utils/utils";
 import axios from "axios";
 import { format } from "date-fns";
 import Image from "next/image";
@@ -81,7 +82,9 @@ const BlogLayoutTwo = (props) => {
          </Link>
 
         <span className="inline-block w-full capitalize text-gray dark:text-light/50 font-semibold  text-xs sm:text-base">
-          {format(new Date(2023, 10, 17), "dd/MM/yyyy")}
+          {
+            isNilAndLenghtIs0(blog.dataPubblicazione) ? "Data non disponibile" : format(new Date(blog.dataPubblicazione), "dd/MM/yyyy")
+          }
         </span>
       </div>
     </div>

@@ -6,6 +6,8 @@ import Link from "next/link";
 import siteMetadata from "@/src/utils/siteMetaData";
 import axios from "axios";
 import Swal from "sweetalert2";
+import PrivacyPolicyButton from "../Button/buttonPrivacyPolicy";
+import CookiePolicyButton from "../Button/buttonCookiePolicy";
 
 const Footer = () => {
   const {
@@ -91,12 +93,12 @@ const Footer = () => {
         <span className="text-center">
           &copy;2023 99DEV. All rights reserved.
         </span>
-        <Link
-          href="/sitemap.xml"
-          className="text-center underline my-4 md:my-0"
-        >
-          sitemap.xml
-        </Link>
+        <div className="flex items-center gap-8">
+          <PrivacyPolicyButton />
+          <CookiePolicyButton />
+          {/* <PrivacyPolicy />
+          <CookiePolicy /> */}
+        </div>
         <div className="text-center">
           Made with &hearts; by{" "}
           <a href="https://devdreaming.com" className="underline" target="_blank">

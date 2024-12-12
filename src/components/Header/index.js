@@ -118,9 +118,9 @@ const Header = () => {
           style={{ display: click ? "flex" : "none" }}
         >
           <CloseOutlined className="text-2xl" onClick={() => setClick(false)} />
-          <Link href="/" className="mt-4 relative inline-block text-hover-underline">Home</Link>
-          <Link href="/about" className="mt-4 relative inline-block text-hover-underline">About</Link>
-          <Link href="/contact" className="mt-4 relative inline-block text-hover-underline">Contact</Link>
+          <Link href="/" className="mt-4 relative inline-block text-hover-underline cursor-pointer">Home</Link>
+          <Link href="/about" className="mt-4 relative inline-block text-hover-underline cursor-pointer">About</Link>
+          <Link href="/contact" className="mt-4 relative inline-block text-hover-underline cursor-pointer">Contact</Link>
           <div className="mt-4 flex gap-3">
             <a href={siteMetadata.linkedin} className="inline-block w-6 h-6 mr-4" aria-label="Reach out to me via LinkedIn" target="_blank"><LinkedinIcon className="hover:scale-125 transition-all ease duration-200" /></a>
             <a href={siteMetadata.github} className="inline-block w-6 h-6 mr-4 bg-white" aria-label="Check my profile on Github" target="_blank"><GithubIcon className="  hover:scale-125 transition-all ease duration-200 dark:fill-light" /></a>
@@ -137,9 +137,9 @@ const Header = () => {
 
         <nav className=" w-max py-3 px-8 border border-solid border-dark rounded-full font-medium capitalize  items-center hidden sm:flex
         fixed top-6 right-1/2 translate-x-1/2 bg-light/80 backdrop-blur-sm z-50">
-          <Link href="/" className="mr-2">Home</Link>
-          <Link href="/about" className="mx-2">About</Link>
-          <Link href="/contact" className="mx-2">Contact</Link>
+          <Link href="/" className="mr-2 cursor-pointer">Home</Link>
+          <Link href="/about" className="mx-2 cursor-pointer">About</Link>
+          <Link href="/contact" className="mx-2 cursor-pointer">Contact</Link>
           {/* <button onClick={() => dispatch(switchTheme())}
             aria-label="theme-switcher"
             >
@@ -151,7 +151,7 @@ const Header = () => {
         <div className=" hidden sm:flex items-center h-fit w-fit">
           {IconVisibility ?
             // <Image src={search} alt="search icon" width={20} height={20} className="rounded-full p-3 mt-2 bg-white"  priority onClick={() => handleImageClick()} layout="responsive" quality={80}/> : null
-            <SearchOutlined size={28} className="text-2xl rounded-full p-3 mt-2 bg-white " onClick={() => handleImageClick()} /> : null
+            <SearchOutlined size={28} className="text-2xl rounded-full p-3 mt-2 bg-white cursor-pointer" onClick={() => handleImageClick()} /> : null
           }
           <a href={siteMetadata.linkedin} className="inline-block w-6 h-6 mr-4" aria-label="Reach out to me via LinkedIn" target="_blank"><LinkedinIcon className="hover:scale-125 transition-all ease duration-200" /></a>
           <a href={siteMetadata.github} className="inline-block w-6 h-6 mr-4 bg-white" aria-label="Check my profile on Github" target="_blank"><GithubIcon className="  hover:scale-125 transition-all ease duration-200 dark:fill-light" /></a>

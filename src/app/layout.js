@@ -1,5 +1,4 @@
 import "./globals.css";
-
 import { Inter, Manrope } from "next/font/google";
 import Header from "@/src/components/Header";
 import Footer from "../components/Footer";
@@ -8,6 +7,7 @@ import Script from "next/script";
 import { ReduxProvider } from "../utils/redux/feature/ReduxProvider";
 import NotFound from "./not-found";
 import ManutenzionePage from "./manutenzione-page";
+import Iubenda from "../components/Iubenda";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,25 +62,26 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {
-          manutenzione ? 
-          (
-            <ManutenzionePage />
-          )
-          :
-          (
-            <ReduxProvider>
-              <Script id="theme-switcher" strategy="beforeInteractive">
-                {`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          manutenzione ?
+            (
+              <ManutenzionePage />
+            )
+            :
+            (
+              <ReduxProvider>
+                <Iubenda />
+                <Script id="theme-switcher" strategy="beforeInteractive">
+                  {`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark')
                 } else {
                 document.documentElement.classList.remove('dark')
                 }`}
-              </Script>
-              <Header />
-              {children}
-              <Footer />
-            </ReduxProvider>
-          )
+                </Script>
+                <Header />
+                {children}
+                <Footer />
+              </ReduxProvider>
+            )
         }
       </body>
     </html>

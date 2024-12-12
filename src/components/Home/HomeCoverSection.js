@@ -51,7 +51,7 @@ const HomeCoverSection = () => {
               src={blog.imgCopertina}
               alt={blog.titleArticle}
               fill
-              className='w-full h-full object-center object-cover rounded-3xl -z-10'
+              className='w-full h-full object-center object-scale-down rounded-3xl -z-10'
               sizes='100vw'
               priority
               />
