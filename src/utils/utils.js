@@ -18,10 +18,16 @@ function isNilAndLengthPlusOneArray(text) {
     return text === null || text === undefined || text.length > 1;
 }
 
+function convertFromIsoStringToDate(stringDate) {
+  const date = new Date(stringDate);
+  return date.toLocaleDateString('it-IT');
+}
+
 module.exports = {
     isNil,
     isNilOnly,
     isNilAndLengthPlusZeroArray,
     isNilAndLengthPlusOneArray,
-    isNilAndLenghtIs0
+    isNilAndLenghtIs0,
+    convertFromIsoStringToDate
 }

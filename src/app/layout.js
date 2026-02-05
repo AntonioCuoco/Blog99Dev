@@ -8,6 +8,7 @@ import { ReduxProvider } from "../utils/redux/feature/ReduxProvider";
 import NotFound from "./not-found";
 import ManutenzionePage from "./manutenzione-page";
 import Iubenda from "../components/Iubenda";
+import ThemeScript from "../components/ThemeScript";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -69,14 +70,8 @@ export default function RootLayout({ children }) {
             :
             (
               <ReduxProvider>
+                <ThemeScript />
                 <Iubenda />
-                <Script id="theme-switcher" strategy="beforeInteractive">
-                  {`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark')
-                } else {
-                document.documentElement.classList.remove('dark')
-                }`}
-                </Script>
                 <Header />
                 {children}
                 <Footer />

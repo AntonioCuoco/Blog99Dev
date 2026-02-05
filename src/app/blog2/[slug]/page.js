@@ -16,7 +16,7 @@ export default function BlogSlug({params: {slug}}) {
     //   </div>
     // </section>
 
-    <section className="w-full h-auto p-4">
+    <section className="w-full h-auto p-8">
       <div className="w-full h-auto flex flex-col gap-16">
         {/* <Sidebar /> */}
         <HeaderArticle slug={slug}/>

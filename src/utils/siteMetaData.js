@@ -10,7 +10,7 @@ const siteMetadata = {
     siteLogo: '/1-removebg-preview.png',
     socialBanner: '/social-banner.png', // add social banner in the public folder
     email: '99devstudio@gmail.com', 
-    github: 'https://github.com/AntonioCuoco',
+    bitbucket: 'https://bitbucket.org/99dev-blog-and-cms/',
     twitter: 'https://twitter.com/',
     facebook: 'https://facebook.com',
     youtube: 'https://www.youtube.com/@99DEV48',

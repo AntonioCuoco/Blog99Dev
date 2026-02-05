@@ -11,5 +11,33 @@ pre {
     padding: 1rem;
     color: white;
     border-radius: 1rem;
-    
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+span {
+    color: #0c0c0c !important;
+}
+
+
+
+
+

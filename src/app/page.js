@@ -1,14 +1,17 @@
 'use client'
 import HomeCoverSection from "../components/Home/HomeCoverSection";
-import FeaturedPosts from "../components/Home/FeaturedPosts";
-import RecentPosts from "../components/Home/RecentPosts";
+import RecentPost from "../components/Home/RecentPost";
+import RecentPosts from "../components/Home/Articoli";
+import Articoli from "../components/Home/Articoli";
+import Tutorial from "../components/Home/Tutorial";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center">
       <HomeCoverSection />
-      <FeaturedPosts />
-      <RecentPosts />
+      <RecentPost />
+      <Articoli />
+      <Tutorial />
     </main>
   )
 }

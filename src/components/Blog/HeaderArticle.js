@@ -7,7 +7,6 @@ import './css/headerArticle.css'
 
 const HeaderArticle = (slug) => {
 
-
   const [blog, setBlog] = useState(null);
   const [categories, setCategories] = useState([]);
 
@@ -37,13 +36,13 @@ const HeaderArticle = (slug) => {
         :
         <div className='w-full flex flex-col h-full items-center justify-center'>
           <div className='w-full flex flex-col items-center justify-center'>
-            <h2 className='text-3xl mb-3 text-center'>{blog.titleArticle}</h2>
-            <h3 className='text-lg mb-2 text-center'>{blog.subTitle}</h3>
-            <div className='relative h-[60vh] sm:h-[87vh] w-full flex items-center justify-center'>
-              <div className='absolute top-0 left-0 bottom-0 right-0 h-full
+            <h1 className='text-3xl mb-3 text-center'>{blog.titleArticle}</h1>
+            <h3 className='text-lg mb-2 text-center !font-normal'>{blog.subTitle}</h3>
+            <div className='relative h-[60vh] md:h-[calc(100vh-150px)] w-full flex items-center justify-center'>
+              <div className='hidden md:block absolute top-0 left-0 bottom-0 right-0 h-full
             bg-gradient-to-b from-transparent from-0% to-dark/90 rounded-3xl z-0
             ' />
-              <Image src={blog.imgCopertina} width={200} height={200} className='w-full h-auto md:w-auto md:h-auto md:border-2 md:border-solid md:border-slate-300 dark:md:border-light' />
+              <Image src={blog.imgCopertina} width={200} height={200} className='w-full h-[60dvh] md:w-auto md:border-2 md:border-solid md:border-slate-300 dark:md:border-light' />
             </div>
           </div>
         </div>

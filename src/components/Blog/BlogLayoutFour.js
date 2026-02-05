@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const BlogLayoutFour = (props) => {
   return (
-    <div className="group flex flex-col items-center text-dark dark:text-light" key={props.key}>
+    <div className="group flex flex-col gap-4 items-center text-dark dark:text-light" key={props.key}>
       <Link href={`/blog2/${props.titleArticle}`} className="h-full rounded-xl overflow-hidden" onClick={props.setIsModalOpen}>
         <Image
           src={props.imgCopertina}
@@ -18,14 +18,14 @@ const BlogLayoutFour = (props) => {
         />
       </Link>
 
-      <div className="flex flex-col w-full mt-4">
-        <span className="uppercase text-accent dark:text-accentDark font-semibold text-xs sm:text-sm w-fit" style={{backgroundColor:"#000" ,border: 3,borderColor:"cyan",borderStyle:"solid",borderRadius:18,padding:8,color:"white",fontSize:"0.875rem"}}>
-           {props.category} 
+      <div className="flex flex-col w-full mt-4 gap-2">
+        <span className="uppercase !text-light dark:text-accentDark font-semibold text-xs sm:text-sm w-fit" style={{ backgroundColor: "#000", border: 3, borderColor: "cyan", borderStyle: "solid", borderRadius: 18, padding: 8, color: "white", fontSize: "0.875rem" }}>
+          {props.category}
         </span>
         <Link href={`/blog2/${props.titleArticle}`} className="inline-block my-1" onClick={props.setIsModalOpen}>
           <h2 className="font-semibold capitalize  text-base sm:text-lg">
             <span
-              className="bg-gradient-to-r from-accent/50 to-accent/50  dark:from-accentDark/50
+              className="!text-[#0c0c0c] bg-gradient-to-r from-accent/50 to-accent/50  dark:from-accentDark/50
               dark:to-accentDark/50
               bg-[length:0px_6px]
               group-hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 "
@@ -36,9 +36,9 @@ const BlogLayoutFour = (props) => {
         </Link>
 
         <Link href={`/blog2/${props.titleArticle}`} className="inline-block my-1" onClick={props.setIsModalOpen}>
-          <h2 className="capitalize  text-sm sm:text-base">
-              {props.subTitle}
-          </h2>
+          <p className="capitalize text-sm sm:text-base !text-[#64748b]">
+            {props.subTitle}
+          </p>
         </Link>
       </div>
     </div>

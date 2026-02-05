@@ -1,11 +1,10 @@
 "use client"
 import Link from "next/link";
 import Logo from "./Logo";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "../Icons";
+import { LinkedinIcon } from "../Icons";
+import { FaBitbucket } from "react-icons/fa";
 import siteMetadata from "@/src/utils/siteMetaData";
 import { useState } from "react";
-import search from "@/public/icona-search.png";
-import Image from "next/image";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import BlogLayoutFour from "../Blog/BlogLayoutFour";
@@ -68,46 +67,41 @@ const Header = () => {
   return (
     <div className="w-full flex-col items-center" style={{ backgroundColor: mode === "dark" ? "black" : "white" }}>
       <Modal title="Cerca Articoli" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={false}>
-        {filteredArticle.map((ithBlog, index) => {
-          return <BlogLayoutFour bodyArticle={ithBlog.bodyArticle} titleArticle={ithBlog.titleArticle} imgCopertina={ithBlog.imgCopertina} subTitle={ithBlog.subTitle} category={ithBlog.category} setIsModalOpen={() => setIsModalOpen(false)} key={index} />
-        })}
+        <div className="flex flex-col gap-20 ">
+          {filteredArticle.map((ithBlog, index) => {
+            return <BlogLayoutFour bodyArticle={ithBlog.bodyArticle} titleArticle={ithBlog.titleArticle} imgCopertina={ithBlog.imgCopertina} subTitle={ithBlog.subTitle} category={ithBlog.category} setIsModalOpen={() => setIsModalOpen(false)} key={index} />
+          })}
+        </div>
       </Modal>
       <header className="w-full p-4 px-2 sm:px-10 flex items-center justify-between">
         <Logo mode={mode} />
         <div className="flex flex-row">
-        {IconVisibility ?
-          // <Image src={search} alt="search icon" width={20} height={20} className="rounded-full p-3 mt-2 bg-white"  priority onClick={() => handleImageClick()} layout="responsive" quality={80}/> : null
-          <SearchOutlined size={28} className="text-2xl rounded-full p-3 mt-2 bg-white sm:hidden" onClick={() => handleImageClick()} /> : null
-        }
-        <button className="inline-block z-50 sm:hidden" style={{ marginRight: click ? "0px" : "15px" }} onClick={toggle} aria-label="Hamburger Menu">
-          <div className="w-6 cursor-pointer transition-all ease duration-300">
-            <div className="relative">
-              <span className="absolute top-0 inline-block w-full h-0.5 bg-dark rounded transition-all ease duration-200"
-                style={{
-                  transform: click ? "rotate(-45deg) translateY(0)" : "rotate(0deg) translateY(6px)"
-                }}
+          {IconVisibility ?
+            <SearchOutlined size={28} className="text-2xl rounded-full p-3 mt-1 bg-white sm:hidden" onClick={() => handleImageClick()} /> : null
+          }
+          <button className="inline-block z-50 sm:hidden" style={{ marginRight: click ? "0px" : "15px" }} onClick={toggle} aria-label="Hamburger Menu">
+            <div className="w-6 cursor-pointer transition-all ease duration-300">
+              <div className="relative">
+                <span className="absolute top-0 inline-block w-full h-0.5 bg-dark rounded transition-all ease duration-200"
+                  style={{
+                    transform: click ? "rotate(-45deg) translateY(0)" : "rotate(0deg) translateY(6px)"
+                  }}
 
-              >&nbsp;</span>
-              <span className="absolute top-0 inline-block w-full h-0.5 bg-dark rounded transition-all ease duration-200"
-                style={{
-                  opacity: click ? 0 : 1
-                }}
-              >&nbsp;</span>
-              <span className="absolute top-0 inline-block w-full h-0.5 bg-dark rounded transition-all ease duration-200"
-                style={{
-                  transform: click ? "rotate(45deg) translateY(0)" : "rotate(0deg) translateY(-6px)"
-                }}
-              >&nbsp;</span>
+                >&nbsp;</span>
+                <span className="absolute top-0 inline-block w-full h-0.5 bg-dark rounded transition-all ease duration-200"
+                  style={{
+                    opacity: click ? 0 : 1
+                  }}
+                >&nbsp;</span>
+                <span className="absolute top-0 inline-block w-full h-0.5 bg-dark rounded transition-all ease duration-200"
+                  style={{
+                    transform: click ? "rotate(45deg) translateY(0)" : "rotate(0deg) translateY(-6px)"
+                  }}
+                >&nbsp;</span>
+              </div>
+
             </div>
-
-          </div>
-        </button>
-        {/* {IconVisibility ? null :
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-row justify-center p-2 ml-12">
-            <input type="search" className="w-fit h-10 p-3" {...register("valueSearch", { required: true })} onBlur={() => handleImageClick()} />
-            <input type="submit" className="ml-3 border-2 rounded-md border-indigo-600 border-solid p-2 bg-white text-black" />
-          </form>
-        } */}
+          </button>
         </div>
 
         <nav className=" w-full h-full font-medium capitalize flex flex-col sm:hidden
@@ -118,20 +112,13 @@ const Header = () => {
           style={{ display: click ? "flex" : "none" }}
         >
           <CloseOutlined className="text-2xl" onClick={() => setClick(false)} />
-          <Link href="/" className="mt-4 relative inline-block text-hover-underline cursor-pointer">Home</Link>
-          <Link href="/about" className="mt-4 relative inline-block text-hover-underline cursor-pointer">About</Link>
-          <Link href="/contact" className="mt-4 relative inline-block text-hover-underline cursor-pointer">Contact</Link>
+          <Link href="/" onClick={() => setClick(false)} className="mt-4 relative inline-block text-hover-underline cursor-pointer">Home</Link>
+          <Link href="/about" onClick={() => setClick(false)} className="mt-4 relative inline-block text-hover-underline cursor-pointer">About</Link>
+          <Link href="/contact" onClick={() => setClick(false)} className="mt-4 relative inline-block text-hover-underline cursor-pointer">Contact</Link>
           <div className="mt-4 flex gap-3">
             <a href={siteMetadata.linkedin} className="inline-block w-6 h-6 mr-4" aria-label="Reach out to me via LinkedIn" target="_blank"><LinkedinIcon className="hover:scale-125 transition-all ease duration-200" /></a>
-            <a href={siteMetadata.github} className="inline-block w-6 h-6 mr-4 bg-white" aria-label="Check my profile on Github" target="_blank"><GithubIcon className="  hover:scale-125 transition-all ease duration-200 dark:fill-light" /></a>
+            <a href={siteMetadata.bitbucket} className="inline-block w-6 h-6 mr-4 bg-white" aria-label="Check my profile on BitBucket" target="_blank"><FaBitbucket className="  hover:scale-125 transition-all ease duration-200 dark:fill-light w-[2rem] h-[2rem]" /></a>
           </div>
-          {/* <button onClick={() => dispatch(switchTheme())}
-            aria-label="theme-switcher"
-            >
-                {
-                  mode === "light" ? <SunIcon className={"fill-dark"} /> : <MoonIcon className={"fill-dark"} />  
-                }
-            </button> */}
         </nav>
 
 
@@ -140,27 +127,17 @@ const Header = () => {
           <Link href="/" className="mr-2 cursor-pointer">Home</Link>
           <Link href="/about" className="mx-2 cursor-pointer">About</Link>
           <Link href="/contact" className="mx-2 cursor-pointer">Contact</Link>
-          {/* <button onClick={() => dispatch(switchTheme())}
-            aria-label="theme-switcher"
-            >
-                {
-                  mode === "light" ? <SunIcon className={"fill-dark"} /> : <MoonIcon className={"fill-dark"} />
-                }
-            </button> */}
         </nav>
         <div className=" hidden sm:flex items-center h-fit w-fit">
-          {IconVisibility ?
-            // <Image src={search} alt="search icon" width={20} height={20} className="rounded-full p-3 mt-2 bg-white"  priority onClick={() => handleImageClick()} layout="responsive" quality={80}/> : null
-            <SearchOutlined size={28} className="text-2xl rounded-full p-3 mt-2 bg-white cursor-pointer" onClick={() => handleImageClick()} /> : null
-          }
+          <SearchOutlined size={28} className="text-2xl rounded-full p-3 mt-2 bg-white cursor-pointer" onClick={() => handleImageClick()} />
           <a href={siteMetadata.linkedin} className="inline-block w-6 h-6 mr-4" aria-label="Reach out to me via LinkedIn" target="_blank"><LinkedinIcon className="hover:scale-125 transition-all ease duration-200" /></a>
-          <a href={siteMetadata.github} className="inline-block w-6 h-6 mr-4 bg-white" aria-label="Check my profile on Github" target="_blank"><GithubIcon className="  hover:scale-125 transition-all ease duration-200 dark:fill-light" /></a>
+          <a href={siteMetadata.bitbucket} className="inline-block w-6 h-6 mr-4 bg-white" aria-label="Check my profile on Github" target="_blank"><FaBitbucket className="  hover:scale-125 transition-all ease duration-200 dark:fill-light w-[2rem] h-[2rem]" /></a>
         </div>
       </header>
       {IconVisibility ? null :
         <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-row justify-center p-2 ml-0 sm:ml-5">
           <input type="search" className="w-fit h-10 p-3" {...register("valueSearch", { required: true })} />
-          <input type="submit" className="ml-3 border-2 rounded-md border-indigo-600 border-solid p-2 bg-white text-black"/>
+          <input type="submit" value={"Cerca"} className="ml-3 border rounded-md border-indigo-600 border-solid p-2 bg-white text-black" />
         </form>
       }
     </div>

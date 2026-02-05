@@ -5,7 +5,7 @@ const insights = [
     "1 anno di esperienza",
     "frontend developer",
     "3 progetti completati",
-    "mi piace mettermi alla sfida, confrontandomi ogni giorno con nuove sfide"
+    "mi piace mettermi alla prova, confrontandomi ogni giorno con nuove sfide"
   ];
 
 export default function AboutLayout({ children }) {

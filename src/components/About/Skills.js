@@ -4,14 +4,15 @@ const SkillList = [
   "react",
   "javaScript",
   "git",
-  "Socket.io",
+  "AWS",
   "css",
   "react native",
-  "redux",
-  "antd",
+  "redux/zustand",
+  "shadcn",
   "axios",
-  "react router",
-  "quill.js",
+  "supabase",
+  "Tanstack",
+  "Playwright"
 ];
 
 const Skills = () => {

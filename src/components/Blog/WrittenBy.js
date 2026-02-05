@@ -57,18 +57,9 @@ const WrittenBy = (props) => {
       {/* </Link> */}
       <Link
         href={"#"}
-        className=" col-span-12  lg:col-span-4 h-full rounded-xl overflow-hidden"
+        className=" col-span-12  lg:col-span-4 h-full rounded-xl overflow-hidden flex items-center"
       >
-        <Image
-          src="/1-removebg-preview.png"
-          // placeholder="blur"
-          // blurDataURL={blog.image.blurhashDataUrl}
-          alt={"image written by"}
-          width={20}
-          height={20}
-          className="aspect-square w-1/3 h-min object-cover object-center group-hover:scale-105 transition-all ease duration-300 rounded-full border-2 border-black"
-          sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 33vw"
-        />
+        <p>Antonio Cuoco</p>
       </Link>
     </div>
   );
