@@ -3,7 +3,7 @@
 A modern, high-performance developer blog built with **Next.js**, **Contentlayer**, and **TailwindCSS**.  
 Designed to share knowledge with a clean, responsive, and SEO-optimized interface.
 
-**Live Site:** [https://99dev.net](https://99dev.net)
+**Live Site:** [https://99dev.netlify.app](https:99dev.netlify.app)
 
 ## Features
 
