@@ -11,7 +11,7 @@ const BlogLayoutFive = (props) => {
     // Funzione auto-invocante
     (async () => {
       handleSubmit();
-      setBlogArticle(await getRecentArticleByIndex(props.number));
+      setBlogArticle(await getRecentArticleByIndex(props.number, props.slug));
       handlegetCategories();
     })();
   }, []);

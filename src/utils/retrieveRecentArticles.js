@@ -14,10 +14,14 @@ export const getRecentArticles = async () => {
 };
 
 // Funzione asincrona: restituisce il singolo articolo all'indice richiesto
-export const getRecentArticleByIndex = async (index) => {
-  const list = await getRecentArticles();
+export const getRecentArticleByIndex = async (index, slug) => {
+  let list = await getRecentArticles();
   if (!Array.isArray(list)) return null;
   if (typeof index !== "number" || index < 0 || index >= list.length) return null;
+
+  if(slug !== undefined && slug !== null) {
+    list = list.filter(item => item.titleArticle !== decodeURI(slug));
+  }
   return list[index];
 };
 

@@ -29,9 +29,7 @@ const BodyArticle = (slug) => {
       console.error("Errore durante la chiamata POST article:", error);
     }
   };
-
-  console.log(blog);
-
+  
   return (
     //capire come far funzionare il loading qui
     <div className='w-full flex flex-col items-center justify-center'>
@@ -47,8 +45,8 @@ const BodyArticle = (slug) => {
             <p><span className='font-semibold capitalize text-base sm:text-lg whitespace-nowrap mr-2'>Data Pubblicazione:</span>{convertFromIsoStringToDate(blog.dataPubblicazione)}</p>
             <h4 className='text-lg uppercase font-semibold mt-8'>Recent Post</h4>
             <div className='flex flex-col gap-8 lg:gap-4'>
-              <BlogLayoutFive number={0} recentPost={true} />
-              <BlogLayoutFive number={1} recentPost={true} />
+              <BlogLayoutFive number={0} recentPost={true} slug={slug.slug} />
+              <BlogLayoutFive number={1} recentPost={true} slug={slug.slug} />
             </div>
           </div>
         </div>
